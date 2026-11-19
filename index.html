@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101312">
+  <title>Leonida Atlas — GTA VI Fan Map</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Leonida Atlas inicio">
+      <span class="brand-mark">LA</span>
+      <span><strong>LEONIDA ATLAS</strong><small>COMMUNITY INTERACTIVE MAP</small></span>
+    </a>
+    <div class="search-wrap">
+      <span aria-hidden="true">⌕</span>
+      <input id="search" type="search" placeholder="Buscar lugar o descubrimiento…" autocomplete="off">
+      <kbd>/</kbd>
+    </div>
+    <div class="top-actions">
+      <button id="resetView" class="icon-btn" title="Restablecer vista">⟲</button>
+      <button id="aboutBtn" class="about-btn">ACERCA DE</button>
+    </div>
+  </header>
+
+  <main class="app">
+    <aside class="sidebar left">
+      <div class="side-head"><div><span class="eyebrow">EXPLORACIÓN</span><h1>Mapa de Leonida</h1></div><span class="live-dot"></span></div>
+      <p class="muted intro">Explora el mapa, filtra puntos y registra tus hallazgos.</p>
+
+      <section class="progress-card">
+        <div class="progress-line"><span>PROGRESO PERSONAL</span><strong id="progressText">0 / 0</strong></div>
+        <div class="progress-track"><span id="progressBar"></span></div>
+        <small id="progressPercent">0% descubierto</small>
+      </section>
+
+      <div class="section-title"><span>CATEGORÍAS</span><button id="clearFilters" class="text-btn">LIMPIAR</button></div>
+      <div id="filters" class="filters"></div>
+      <div class="section-title status-title"><span>ESTADO DE LA INFORMACIÓN</span></div>
+      <div class="status-legend">
+        <span><i class="dot confirmed"></i> Confirmado</span>
+        <span><i class="dot official"></i> Material oficial</span>
+        <span><i class="dot theory"></i> No verificado</span>
+      </div>
+      <div class="sidebar-note"><strong>Nota de la comunidad</strong><p>Los marcadores iniciales son solo una estructura de ejemplo vacía. Añade descubrimientos cuando existan pruebas verificables.</p></div>
+    </aside>
+
+    <section class="map-stage" aria-label="Mapa interactivo">
+      <div class="map-toolbar">
+        <span class="map-label"><i></i> LEONIDA · MAP VIEW</span>
+        <div class="map-tools">
+          <button id="zoomOut" title="Alejar">−</button><span id="zoomLabel">100%</span><button id="zoomIn" title="Acercar">+</button>
+          <span class="tool-divider"></span><button id="fullscreen" title="Pantalla completa">⛶</button>
+        </div>
+      </div>
+      <div id="mapViewport" class="map-viewport">
+        <div id="mapCanvas" class="map-canvas">
+          <div id="mapPlaceholder" class="map-placeholder">
+            <div class="placeholder-icon">⌖</div>
+            <span class="eyebrow">CAPA CARTOGRÁFICA PENDIENTE</span>
+            <h2>Añade el mapa oficial de Rockstar</h2>
+            <p>Para respetar tu requisito, no hemos dibujado ni sustituido el mapa por una versión inventada.</p>
+            <ol>
+              <li>Descarga la imagen oficial de Leonida desde Rockstar Games.</li>
+              <li>Guárdala en <code>assets/official-map.jpg</code>.</li>
+              <li>Recarga esta página.</li>
+            </ol>
+            <a class="source-link" href="https://www.rockstargames.com/VI" target="_blank" rel="noopener">Abrir página oficial de GTA VI ↗</a>
+          </div>
+          <img id="officialMap" src="assets/official-map.jpg" alt="Mapa oficial de Leonida de Rockstar Games" draggable="false">
+          <div id="markers"></div>
+        </div>
+      </div>
+      <div class="map-footer"><span id="mapHint">ARRASTRA PARA MOVER · RUEDA PARA ZOOM</span><span id="markerCount">0 MARCADORES VISIBLES</span></div>
+    </section>
+
+    <aside class="sidebar right">
+      <div class="detail-head"><span class="eyebrow">REGISTRO DE DESCUBRIMIENTOS</span><h2 id="detailTitle">Sin selección</h2><p id="detailSubtitle">Selecciona un marcador del mapa.</p></div>
+      <div id="emptyDetail" class="empty-detail"><div class="empty-symbol">✳</div><strong>Tu próxima pista empieza aquí</strong><p>Cuando incorpores ubicaciones verificadas, podrás consultar sus detalles y marcar las que hayas encontrado.</p></div>
+      <div id="detailContent" class="detail-content hidden">
+        <div class="detail-tags"><span id="detailCategory" class="tag"></span><span id="detailStatus" class="tag"></span></div>
+        <p id="detailDescription"></p>
+        <div class="detail-meta"><span>FUENTE</span><a id="detailSource" href="#" target="_blank" rel="noopener">Consultar fuente ↗</a></div>
+        <button id="foundBtn" class="found-btn">✓ MARCAR COMO DESCUBIERTO</button>
+      </div>
+      <div class="right-bottom"><span class="eyebrow">PROYECTO COMUNITARIO</span><p>Hecho por fans, para fans. Sin afiliación con Rockstar Games.</p><button id="addInfoBtn" class="outline-btn">CÓMO AÑADIR MARCADORES</button></div>
+    </aside>
+  </main>
+
+  <dialog id="modal">
+    <button class="modal-close" id="closeModal">×</button>
+    <span class="eyebrow">LEONIDA ATLAS</span>
+    <h2>Un proyecto fan-made</h2>
+    <p>Este sitio es un proyecto no oficial creado por fans. No está afiliado, respaldado ni aprobado por Rockstar Games o Take-Two Interactive.</p>
+    <p>Grand Theft Auto, GTA VI y los materiales oficiales relacionados son propiedad de sus respectivos titulares. El mapa debe proceder de una publicación oficial y conservar su atribución.</p>
+    <p>Los descubrimientos de la comunidad deben incluir una fuente. Las teorías se identifican claramente como no verificadas.</p>
+    <a href="https://www.rockstargames.com/VI" target="_blank" rel="noopener">Rockstar Games — GTA VI ↗</a>
+  </dialog>
+  <script src="app.js"></script>
+</body>
+</html>
