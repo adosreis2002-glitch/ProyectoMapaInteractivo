@@ -1,12 +1,15 @@
-# Leonida Atlas — GTA VI Fan Map
+# Leonida Atlas — mapa interactivo fan-made de GTA VI
 
-Proyecto fan-made, no oficial y no afiliado a Rockstar Games ni Take-Two Interactive.
+Proyecto comunitario no oficial, sin afiliación con Rockstar Games ni Take-Two Interactive.
 
-## Mapa oficial
-El sitio carga el mapa desde `assets/official-map.jpg.jpg`, que es el nombre del archivo actualmente guardado en el repositorio. Si cambias el nombre, actualiza también la ruta del elemento `img#officialMap` en `index.html`.
+## Mapa
+La página carga el archivo que está actualmente en el repositorio: `assets/official-map.jpg.jpg`. Para cambiarlo, actualiza la ruta de `img#officialMap` en `index.html`.
 
-## Añadir descubrimientos
-Edita el array `discoveries` al principio de `app.js`. Cada elemento usa coordenadas porcentuales sobre la imagen:
+La imagen se ajusta a su proporción original. Puedes arrastrar para desplazarte, acercar o alejar con la rueda del ratón o con los botones, usar `+` / `-` y pulsar `0` para restablecer la vista.
+
+## Marcadores
+El array `discoveries` al principio de `app.js` está vacío intencionadamente para no inventar ubicaciones. Añade solo hallazgos con fuente verificable, usando coordenadas porcentuales (0–100) relativas a la imagen:
+
 ```js
 {
   id: "id-unico",
@@ -16,12 +19,12 @@ Edita el array `discoveries` al principio de `app.js`. Cada elemento usa coorden
   status: "confirmed", // confirmed | official | theory
   description: "Descripción basada en evidencia.",
   source: "https://fuente-verificable.example",
-  x: 42.5, // porcentaje horizontal
-  y: 31.2  // porcentaje vertical
+  x: 42.5,
+  y: 31.2
 }
 ```
-Categorías: `mystery`, `ufo`, `references`, `locations`, `collectibles`, `wildlife`, `activities`.
-No añadas teorías como hechos; usa `status: "theory"` y una fuente.
 
-## Publicar gratis con GitHub Pages
-En GitHub: Settings → Pages → Deploy from a branch → `main` → `/ (root)` → Save. La web estará disponible cuando termine la primera publicación.
+Categorías: `mystery`, `ufo`, `references`, `locations`, `collectibles`, `wildlife`, `activities`. El progreso de descubrimientos se guarda localmente en el navegador.
+
+## Publicación
+GitHub Pages debe apuntar a la rama `main` y a la carpeta `/ (root)`. Una vez publicado, la página estará en `https://adosreis2002-glitch.github.io/ProyectoMapaInteractivo/`.
