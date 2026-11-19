@@ -2,12 +2,8 @@
 
 Proyecto fan-made, no oficial y no afiliado a Rockstar Games ni Take-Two Interactive.
 
-## Añadir el mapa oficial
-1. Descarga el mapa/poster de Leonida desde una publicación oficial de Rockstar Games.
-2. Guarda la imagen como `assets/official-map.jpg`.
-3. Recarga `index.html`.
-
-No se incluye una imagen sustitutiva ni una geografía reconstruida: la capa cartográfica queda vacía hasta que se añada el archivo oficial.
+## Mapa oficial
+El sitio carga el mapa desde `assets/official-map.jpg.jpg`, que es el nombre del archivo actualmente guardado en el repositorio. Si cambias el nombre, actualiza también la ruta del elemento `img#officialMap` en `index.html`.
 
 ## Añadir descubrimientos
 Edita el array `discoveries` al principio de `app.js`. Cada elemento usa coordenadas porcentuales sobre la imagen:
@@ -28,4 +24,4 @@ Categorías: `mystery`, `ufo`, `references`, `locations`, `collectibles`, `wildl
 No añadas teorías como hechos; usa `status: "theory"` y una fuente.
 
 ## Publicar gratis con GitHub Pages
-Sube todos los archivos al repositorio. En GitHub: Settings → Pages → Deploy from a branch → `main` → `/ (root)` → Save.
+En GitHub: Settings → Pages → Deploy from a branch → `main` → `/ (root)` → Save. La web estará disponible cuando termine la primera publicación.
